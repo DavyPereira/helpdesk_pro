@@ -1,0 +1,187 @@
+<div class="bg-background text-on-background min-h-screen flex selection:bg-primary/30">
+  <main class="flex w-full min-h-screen overflow-hidden">
+
+    <!-- Left Side: Branding & Features -->
+    <section class="hidden lg:flex flex-col w-1/2 relative bg-[#1A1A1A] p-16 overflow-hidden border-r border-outline-variant/30">
+      <div class="absolute inset-0 dotted-grid opacity-10 pointer-events-none"></div>
+      <div class="absolute -top-40 -left-40 w-96 h-96 bg-primary/10 rounded-full blur-[120px]"></div>
+      <div class="absolute bottom-0 right-0 w-full h-1/2 bg-gradient-to-t from-primary/5 to-transparent"></div>
+
+      <div class="relative z-10 mb-16">
+        <h1 class="text-2xl font-bold text-primary flex items-center gap-2">
+          <span class="material-symbols-outlined">bolt</span>
+          HelpDesk Pro
+        </h1>
+      </div>
+
+      <div class="relative z-10 flex-grow flex flex-col justify-center max-w-xl">
+        <h2 class="text-5xl font-bold text-on-surface mb-4 leading-tight tracking-tight">
+          Smart ticket management for modern teams
+        </h2>
+        <p class="text-lg text-on-surface-variant mb-16 leading-relaxed">
+          Centralize support requests, track SLAs, assign technicians, monitor performance, and keep your operation under control.
+        </p>
+
+        <div class="grid grid-cols-2 gap-6">
+          <div class="group p-4 rounded-xl border border-outline-variant/20 hover:border-primary/50 transition-all duration-300 bg-surface-container-lowest/30">
+            <span class="material-symbols-outlined text-primary mb-2 block">timer</span>
+            <h3 class="text-sm font-semibold text-on-surface mb-1">SLA and Priorities</h3>
+            <p class="text-xs text-on-surface-variant">Automated escalation and resolution tracking.</p>
+          </div>
+
+          <div class="group p-4 rounded-xl border border-outline-variant/20 hover:border-primary/50 transition-all duration-300 bg-surface-container-lowest/30">
+            <span class="material-symbols-outlined text-primary mb-2 block">group</span>
+            <h3 class="text-sm font-semibold text-on-surface mb-1">User Management</h3>
+            <p class="text-xs text-on-surface-variant">Role-based access and permissions.</p>
+          </div>
+
+          <div class="group p-4 rounded-xl border border-outline-variant/20 hover:border-primary/50 transition-all duration-300 bg-surface-container-lowest/30">
+            <span class="material-symbols-outlined text-primary mb-2 block">notifications_active</span>
+            <h3 class="text-sm font-semibold text-on-surface mb-1">Real-time Notifications</h3>
+            <p class="text-xs text-on-surface-variant">Instant updates via email and Slack.</p>
+          </div>
+
+          <div class="group p-4 rounded-xl border border-outline-variant/20 hover:border-primary/50 transition-all duration-300 bg-surface-container-lowest/30">
+            <span class="material-symbols-outlined text-primary mb-2 block">insights</span>
+            <h3 class="text-sm font-semibold text-on-surface mb-1">Dashboard Analytics</h3>
+            <p class="text-xs text-on-surface-variant">Visualize ticket trends and KPIs.</p>
+          </div>
+
+          <div class="group p-4 rounded-xl border border-outline-variant/20 hover:border-primary/50 transition-all duration-300 bg-surface-container-lowest/30">
+            <span class="material-symbols-outlined text-primary mb-2 block">api</span>
+            <h3 class="text-sm font-semibold text-on-surface mb-1">REST API</h3>
+            <p class="text-xs text-on-surface-variant">Integrate with your existing toolstack.</p>
+          </div>
+
+          <div class="group p-4 rounded-xl border border-outline-variant/20 hover:border-primary/50 transition-all duration-300 bg-surface-container-lowest/30">
+            <span class="material-symbols-outlined text-primary mb-2 block">history</span>
+            <h3 class="text-sm font-semibold text-on-surface mb-1">Activity History</h3>
+            <p class="text-xs text-on-surface-variant">Full audit logs and file attachments.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="absolute bottom-10 left-16 flex items-center gap-4 opacity-40">
+        <div class="w-10 h-10 rounded-full overflow-hidden bg-primary/20 flex items-center justify-center">
+          <span class="material-symbols-outlined text-primary text-sm">support_agent</span>
+        </div>
+        <div class="text-on-surface-variant">
+          <p class="text-xs font-medium uppercase tracking-widest leading-none">Trusted by</p>
+          <p class="text-sm font-semibold text-on-surface">500+ Global Support Teams</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Right Side: Login Form -->
+    <section class="w-full lg:w-1/2 flex flex-col items-center justify-center bg-on-surface px-4 lg:px-16 relative">
+      <!-- Mobile Brand -->
+      <div class="lg:hidden absolute top-10 left-4">
+        <h1 class="text-2xl font-bold text-inverse-primary flex items-center gap-2">
+          <span class="material-symbols-outlined">bolt</span>
+          HelpDesk Pro
+        </h1>
+      </div>
+
+      <!-- Card -->
+      <div class="w-full max-w-md bg-white rounded-[2rem] px-10 py-12 shadow-xl shadow-black/5 relative overflow-hidden group">
+        <!-- Top Icon -->
+        <div class="mb-6 flex justify-center">
+          <div class="w-12 h-12 rounded-2xl bg-primary/10 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+            <span class="material-symbols-outlined text-primary text-3xl">headset</span>
+          </div>
+        </div>
+
+        <!-- Titles -->
+        <div class="text-center mb-10">
+          <p class="text-xs font-medium text-outline uppercase tracking-widest mb-1">Welcome back</p>
+          <h2 class="text-2xl font-bold text-[#1A1A1A]">Sign in to your account</h2>
+        </div>
+
+        <%= form_for(resource,
+          as: resource_name,
+          url: session_path(resource_name),
+          html: { class: "space-y-6" }) do |f| %>
+
+          <div>
+            <%= f.label :email, "Email address",
+              class: "block text-sm font-medium text-surface-variant mb-2" %>
+            <%= f.email_field :email,
+              autofocus: true,
+              autocomplete: "email",
+              placeholder: "name@company.com",
+              class: "w-full h-12 bg-white border border-outline-variant/30 rounded-xl px-4 text-sm text-[#1A1A1A] focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all duration-200" %>
+          </div>
+
+          <div>
+            <%= f.label :password, "Password",
+              class: "block text-sm font-medium text-surface-variant mb-2" %>
+            <div class="relative">
+              <%= f.password_field :password,
+                autocomplete: "current-password",
+                placeholder: "••••••••",
+                id: "password",
+                class: "w-full h-12 bg-white border border-outline-variant/30 rounded-xl px-4 text-sm text-[#1A1A1A] focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all duration-200" %>
+              <button type="button" onclick="togglePassword()" class="absolute right-4 top-1/2 -translate-y-1/2 text-outline hover:text-primary transition-colors">
+                <span class="material-symbols-outlined text-xl" id="passIcon">visibility</span>
+              </button>
+            </div>
+          </div>
+
+          <% if devise_mapping.rememberable? %>
+            <div class="flex items-center justify-between">
+              <label class="flex items-center gap-2 text-sm text-surface-variant">
+                <%= f.check_box :remember_me,
+                  class: "rounded border-outline-variant/30 text-primary focus:ring-primary" %>
+                Remember me
+              </label>
+              <%= link_to "Forgot password?",
+                new_password_path(resource_name),
+                class: "text-sm font-medium text-primary hover:text-primary-container transition-colors" %>
+            </div>
+          <% end %>
+
+          <%= f.submit "Access system",
+            class: "w-full h-12 gradient-emerald text-on-primary text-sm font-bold rounded-xl shadow-lg shadow-primary/20 hover:shadow-primary/30 active:scale-[0.98] transition-all duration-200 cursor-pointer" %>
+        <% end %>
+
+        <div class="mt-10 text-center">
+          <p class="text-sm text-surface-variant">
+            Don't have an account?
+            <%= link_to "Create account",
+              new_registration_path(resource_name),
+              class: "font-bold text-primary hover:underline decoration-2 underline-offset-4 ml-1" %>
+          </p>
+        </div>
+      </div>
+
+      <div class="absolute bottom-6 text-center">
+        <p class="text-xs text-outline">
+          &copy; <%= Time.current.year %> HelpDesk Pro. Enterprise Infrastructure.
+        </p>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<script>
+  function togglePassword() {
+    const input = document.getElementById('password');
+    const icon = document.getElementById('passIcon');
+    if (input.type === 'password') {
+      input.type = 'text';
+      icon.textContent = 'visibility_off';
+    } else {
+      input.type = 'password';
+      icon.textContent = 'visibility';
+    }
+  }
+
+  document.addEventListener('mousemove', (e) => {
+    const moveX = (e.clientX - window.innerWidth / 2) / 50;
+    const moveY = (e.clientY - window.innerHeight / 2) / 50;
+    document.querySelectorAll('.bg-primary\\/10').forEach(glow => {
+      glow.style.transform = `translate(${moveX}px, ${moveY}px)`;
+    });
+  });
+</script>

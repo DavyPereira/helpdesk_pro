@@ -1,0 +1,7 @@
+<% count = user.notifications.unread.count %>
+
+<% if count.positive? %>
+  <span class="bg-error text-on-error text-xs px-2 py-0.5 rounded-full font-semibold">
+    <%= count %>
+  </span>
+<% end %>

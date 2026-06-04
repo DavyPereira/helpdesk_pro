@@ -1,0 +1,113 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #4edea3;
+  --color-on-primary: #003824;
+  --color-primary-container: #10b981;
+  --color-on-primary-container: #00422b;
+  --color-inverse-primary: #006c49;
+  --color-secondary: #b9c7e0;
+  --color-on-secondary: #233144;
+  --color-secondary-container: #3c4a5e;
+  --color-on-secondary-container: #abb9d2;
+  --color-tertiary: #c8c6c5;
+  --color-on-tertiary: #313030;
+  --color-error: #ffb4ab;
+  --color-on-error: #690005;
+  --color-error-container: #93000a;
+  --color-on-error-container: #ffdad6;
+  --color-background: #101415;
+  --color-on-background: #e0e3e5;
+  --color-surface: #101415;
+  --color-surface-dim: #101415;
+  --color-surface-bright: #363a3b;
+  --color-surface-variant: #323537;
+  --color-surface-container-lowest: #0b0f10;
+  --color-surface-container-low: #191c1e;
+  --color-surface-container: #1d2022;
+  --color-surface-container-high: #272a2c;
+  --color-surface-container-highest: #323537;
+  --color-surface-tint: #4edea3;
+  --color-on-surface: #e0e3e5;
+  --color-on-surface-variant: #bbcabf;
+  --color-inverse-surface: #e0e3e5;
+  --color-inverse-on-surface: #2d3133;
+  --color-outline: #86948a;
+  --color-outline-variant: #3c4a42;
+}
+
+.dotted-grid {
+  background-image: radial-gradient(circle, #3c4a42 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+.gradient-emerald {
+  background: linear-gradient(180deg, #4edea3 0%, #059669 100%);
+}
+
+.glass-morphism {
+  backdrop-filter: blur(20px);
+  background: rgba(30, 41, 59, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.emerald-glow {
+  box-shadow: 0 0 20px rgba(78, 222, 163, 0.15);
+}
+
+/* ── Semantic status chips ─────────────────────────────────────────── */
+.chip {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px 10px;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+/* Dark mode (default) */
+.chip-emerald { background: rgba(78, 222, 163, 0.12); color: #4edea3; }
+.chip-yellow  { background: rgba(250, 204, 21,  0.12); color: #facc15; }
+.chip-red     { background: rgba(248, 113, 113, 0.12); color: #f87171; }
+.chip-blue    { background: rgba(147, 197, 253, 0.12); color: #93c5fd; }
+.chip-gray    { background: rgba(148, 163, 184, 0.12); color: #94a3b8; }
+
+/* Light mode — darker text + more opaque tinted backgrounds */
+body.light-mode .chip-emerald { background: #d1fae5; color: #065f46; }
+body.light-mode .chip-yellow  { background: #fef9c3; color: #854d0e; }
+body.light-mode .chip-red     { background: #fee2e2; color: #991b1b; }
+body.light-mode .chip-blue    { background: #dbeafe; color: #1e40af; }
+body.light-mode .chip-gray    { background: #f1f5f9; color: #334155; }
+
+/* ── Light mode overrides ─────────────────────────────────────────── */
+body.light-mode {
+  --color-background: #f4f6f7;
+  --color-on-background: #0d1011;
+  --color-surface: #f4f6f7;
+  --color-surface-dim: #e8eaeb;
+  --color-surface-bright: #ffffff;
+  --color-surface-variant: #dbe5df;
+  --color-surface-container-lowest: #ffffff;
+  --color-surface-container-low: #eef0f2;
+  --color-surface-container: #e8eaec;
+  --color-surface-container-high: #e1e4e6;
+  --color-surface-container-highest: #dcdfe1;
+  /* Text colors — significantly darker for legibility on light backgrounds */
+  --color-on-surface: #0d1011;
+  --color-on-surface-variant: #1c2422;
+  --color-outline: #3a4a45;
+  --color-outline-variant: #b0bbb6;
+  --color-surface-tint: #006c49;
+  --color-inverse-surface: #2d3133;
+  --color-inverse-on-surface: #eff1f2;
+  --color-inverse-primary: #006c49;
+  --color-error: #ba1a1a;
+  --color-on-error: #ffffff;
+  --color-error-container: #ffdad6;
+  --color-on-error-container: #410002;
+}
+
+body.light-mode .dotted-grid {
+  background-image: radial-gradient(circle, #c0cac5 1px, transparent 1px);
+}

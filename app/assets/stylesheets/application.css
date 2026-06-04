@@ -1,0 +1,50 @@
+/*
+ * This is a manifest file that'll be compiled into application.css.
+ *
+ * With Propshaft, assets are served efficiently without preprocessing steps. You can still include
+ * application-wide styles in this file, but keep in mind that CSS precedence will follow the standard
+ * cascading order, meaning styles declared later in the document or manifest will override earlier ones,
+ * depending on specificity.
+ *
+ * Consider organizing styles into separate files for maintainability.
+ */
+body.dark-mode {
+  background-color: #030712;
+  color: #f9fafb;
+}
+
+body.dark-mode main {
+  background-color: #030712;
+}
+
+body.dark-mode .bg-white {
+  background-color: #111827 !important;
+  color: #f9fafb !important;
+}
+
+body.dark-mode .bg-gray-100 {
+  background-color: #1f2937 !important;
+}
+
+body.dark-mode .text-gray-500,
+body.dark-mode .text-gray-600,
+body.dark-mode .text-gray-700,
+body.dark-mode .text-gray-800 {
+  color: #d1d5db !important;
+}
+
+body.dark-mode table thead {
+  background-color: #1f2937 !important;
+}
+
+body.dark-mode tr {
+  border-color: #374151 !important;
+}
+
+body.dark-mode input,
+body.dark-mode textarea,
+body.dark-mode select {
+  background-color: #111827;
+  color: #f9fafb;
+  border-color: #374151;
+}

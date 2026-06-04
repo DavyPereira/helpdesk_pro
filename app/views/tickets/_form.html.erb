@@ -1,0 +1,70 @@
+<%= form_with(model: ticket, class: "space-y-6") do |form| %>
+  <% if ticket.errors.any? %>
+    <div class="rounded-xl border border-error/30 bg-error-container/20 px-4 py-3">
+      <p class="text-sm font-semibold text-error mb-1">
+        <%= pluralize(ticket.errors.count, "erro") %> encontrado(s):
+      </p>
+      <ul class="list-disc ml-4 space-y-1">
+        <% ticket.errors.each do |error| %>
+          <li class="text-sm text-error/80"><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :title, "Título",
+      class: "block text-sm font-medium text-on-surface-variant mb-2" %>
+    <%= form.text_field :title,
+      placeholder: "Descreva brevemente o problema...",
+      class: "w-full h-12 bg-surface-container-low border border-outline-variant/40 rounded-xl px-4 text-sm text-on-surface placeholder-outline focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all duration-200 #{ticket.errors[:title].any? ? 'border-error/50 focus:border-error' : ''}" %>
+  </div>
+
+  <div>
+    <%= form.label :description, "Descrição",
+      class: "block text-sm font-medium text-on-surface-variant mb-2" %>
+    <%= form.textarea :description,
+      rows: 5,
+      placeholder: "Descreva o problema com detalhes...",
+      class: "w-full bg-surface-container-low border border-outline-variant/40 rounded-xl px-4 py-3 text-sm text-on-surface placeholder-outline focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all duration-200 resize-none #{ticket.errors[:description].any? ? 'border-error/50 focus:border-error' : ''}" %>
+  </div>
+
+  <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+    <div>
+      <%= form.label :status, "Status",
+        class: "block text-sm font-medium text-on-surface-variant mb-2" %>
+      <%= form.select :status, Ticket.statuses.keys, {},
+        class: "w-full h-12 bg-surface-container-low border border-outline-variant/40 rounded-xl px-4 text-sm text-on-surface focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all duration-200" %>
+    </div>
+
+    <div>
+      <%= form.label :priority, "Prioridade",
+        class: "block text-sm font-medium text-on-surface-variant mb-2" %>
+      <%= form.select :priority, Ticket.priorities.keys, {},
+        class: "w-full h-12 bg-surface-container-low border border-outline-variant/40 rounded-xl px-4 text-sm text-on-surface focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all duration-200" %>
+    </div>
+  </div>
+
+  <% if current_user.admin? %>
+    <div>
+      <%= form.label :assigned_to_id, "Técnico responsável",
+        class: "block text-sm font-medium text-on-surface-variant mb-2" %>
+      <%= form.collection_select :assigned_to_id,
+        User.admin, :id, :email,
+        { include_blank: "Sem responsável" },
+        class: "w-full h-12 bg-surface-container-low border border-outline-variant/40 rounded-xl px-4 text-sm text-on-surface focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all duration-200" %>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :attachments, "Anexos",
+      class: "block text-sm font-medium text-on-surface-variant mb-2" %>
+    <%= form.file_field :attachments,
+      multiple: true,
+      class: "w-full text-sm text-on-surface-variant file:mr-4 file:py-2 file:px-4 file:rounded-xl file:border-0 file:text-sm file:font-semibold file:bg-primary/10 file:text-primary hover:file:bg-primary/20 file:cursor-pointer" %>
+  </div>
+
+  <div>
+    <%= form.submit class: "h-12 px-8 gradient-emerald text-on-primary text-sm font-bold rounded-xl shadow-lg shadow-primary/20 hover:shadow-primary/30 active:scale-[0.98] transition-all duration-200 cursor-pointer" %>
+  </div>
+<% end %>

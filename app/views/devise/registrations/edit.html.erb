@@ -1,0 +1,108 @@
+<div class="p-8 max-w-2xl mx-auto">
+  <div class="mb-6">
+    <h1 class="text-2xl font-bold text-on-surface flex items-center gap-2">
+      <span class="material-symbols-outlined text-primary">manage_accounts</span>
+      Editar perfil
+    </h1>
+    <p class="text-sm text-on-surface-variant mt-1">Atualize suas informações de acesso.</p>
+  </div>
+
+  <%= render "devise/shared/error_messages", resource: resource %>
+
+  <div class="bg-surface-container border border-outline-variant/20 rounded-2xl p-8 space-y-6">
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put, class: "space-y-6" }) do |f| %>
+
+      <div>
+        <%= f.label :email, "E-mail",
+          class: "block text-sm font-medium text-on-surface-variant mb-2" %>
+        <%= f.email_field :email,
+          autofocus: true,
+          autocomplete: "email",
+          class: "w-full h-12 bg-surface-container-low border border-outline-variant/40 rounded-xl px-4 text-sm text-on-surface focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all duration-200" %>
+        <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+          <p class="text-xs text-on-surface-variant mt-1">
+            Aguardando confirmação para: <span class="text-primary"><%= resource.unconfirmed_email %></span>
+          </p>
+        <% end %>
+      </div>
+
+      <div class="border-t border-outline-variant/20 pt-6">
+        <p class="text-xs font-medium text-outline uppercase tracking-widest mb-4">Alterar senha</p>
+
+        <div class="space-y-5">
+          <div>
+            <%= f.label :password, "Nova senha",
+              class: "block text-sm font-medium text-on-surface-variant mb-2" %>
+            <div class="relative">
+              <%= f.password_field :password,
+                autocomplete: "new-password",
+                placeholder: "Deixe em branco para não alterar",
+                id: "edit_password",
+                class: "w-full h-12 bg-surface-container-low border border-outline-variant/40 rounded-xl px-4 text-sm text-on-surface placeholder-outline focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all duration-200" %>
+              <button type="button" onclick="toggleVis('edit_password','edit_icon1')" class="absolute right-4 top-1/2 -translate-y-1/2 text-outline hover:text-primary transition-colors">
+                <span class="material-symbols-outlined text-xl" id="edit_icon1">visibility</span>
+              </button>
+            </div>
+            <% if @minimum_password_length %>
+              <p class="text-xs text-outline mt-1">Mínimo de <%= @minimum_password_length %> caracteres.</p>
+            <% end %>
+          </div>
+
+          <div>
+            <%= f.label :password_confirmation, "Confirmar nova senha",
+              class: "block text-sm font-medium text-on-surface-variant mb-2" %>
+            <%= f.password_field :password_confirmation,
+              autocomplete: "new-password",
+              placeholder: "••••••••",
+              class: "w-full h-12 bg-surface-container-low border border-outline-variant/40 rounded-xl px-4 text-sm text-on-surface placeholder-outline focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all duration-200" %>
+          </div>
+
+          <div>
+            <%= f.label :current_password, "Senha atual",
+              class: "block text-sm font-medium text-on-surface-variant mb-2" %>
+            <div class="relative">
+              <%= f.password_field :current_password,
+                autocomplete: "current-password",
+                placeholder: "Necessária para confirmar alterações",
+                id: "current_pwd",
+                class: "w-full h-12 bg-surface-container-low border border-outline-variant/40 rounded-xl px-4 text-sm text-on-surface placeholder-outline focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all duration-200" %>
+              <button type="button" onclick="toggleVis('current_pwd','edit_icon2')" class="absolute right-4 top-1/2 -translate-y-1/2 text-outline hover:text-primary transition-colors">
+                <span class="material-symbols-outlined text-xl" id="edit_icon2">visibility</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <%= f.submit "Salvar alterações",
+        class: "h-12 px-8 gradient-emerald text-on-primary text-sm font-bold rounded-xl shadow-lg shadow-primary/20 hover:shadow-primary/30 active:scale-[0.98] transition-all duration-200 cursor-pointer" %>
+    <% end %>
+  </div>
+
+  <div class="mt-8 bg-surface-container border border-error/20 rounded-2xl p-6">
+    <h3 class="text-sm font-semibold text-error mb-2 flex items-center gap-2">
+      <span class="material-symbols-outlined text-base">warning</span>
+      Zona de perigo
+    </h3>
+    <p class="text-sm text-on-surface-variant mb-4">Esta ação é irreversível. Todos os seus dados serão excluídos.</p>
+    <%= button_to "Excluir minha conta",
+      registration_path(resource_name),
+      data: { turbo_confirm: "Tem certeza? Esta ação não pode ser desfeita." },
+      method: :delete,
+      class: "px-4 py-2 text-sm font-semibold text-error border border-error/30 rounded-xl hover:bg-error-container/20 transition-all cursor-pointer" %>
+  </div>
+</div>
+
+<script>
+  function toggleVis(inputId, iconId) {
+    const input = document.getElementById(inputId);
+    const icon = document.getElementById(iconId);
+    if (input.type === 'password') {
+      input.type = 'text';
+      icon.textContent = 'visibility_off';
+    } else {
+      input.type = 'password';
+      icon.textContent = 'visibility';
+    }
+  }
+</script>

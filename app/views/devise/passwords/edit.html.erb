@@ -1,0 +1,92 @@
+<div class="bg-background text-on-background min-h-screen flex items-center justify-center px-4 relative overflow-hidden">
+  <div class="absolute inset-0 dotted-grid opacity-5 pointer-events-none"></div>
+  <div class="absolute -top-40 -right-40 w-96 h-96 bg-primary/10 rounded-full blur-[120px]"></div>
+  <div class="absolute -bottom-40 -left-40 w-96 h-96 bg-primary/5 rounded-full blur-[120px]"></div>
+
+  <div class="relative z-10 w-full max-w-md">
+    <div class="text-center mb-8">
+      <a href="/" class="inline-flex items-center gap-2 text-xl font-bold text-primary">
+        <span class="material-symbols-outlined">bolt</span>
+        HelpDesk Pro
+      </a>
+    </div>
+
+    <div class="bg-surface-container border border-outline-variant/30 rounded-2xl px-8 py-10 shadow-2xl shadow-black/40">
+      <div class="flex justify-center mb-6">
+        <div class="w-12 h-12 rounded-2xl bg-primary/10 flex items-center justify-center">
+          <span class="material-symbols-outlined text-primary text-3xl">key</span>
+        </div>
+      </div>
+
+      <div class="text-center mb-8">
+        <p class="text-xs font-medium text-outline uppercase tracking-widest mb-1">Nova senha</p>
+        <h2 class="text-2xl font-bold text-on-surface">Redefinir senha</h2>
+        <% if @minimum_password_length %>
+          <p class="text-sm text-on-surface-variant mt-2">Mínimo de <%= @minimum_password_length %> caracteres.</p>
+        <% end %>
+      </div>
+
+      <%= render "devise/shared/error_messages", resource: resource %>
+
+      <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put, class: "space-y-5" }) do |f| %>
+        <%= f.hidden_field :reset_password_token %>
+
+        <div>
+          <%= f.label :password, "Nova senha",
+            class: "block text-sm font-medium text-on-surface-variant mb-2" %>
+          <div class="relative">
+            <%= f.password_field :password,
+              autofocus: true,
+              autocomplete: "new-password",
+              placeholder: "••••••••",
+              id: "new_password",
+              class: "w-full h-12 bg-surface-container-low border border-outline-variant/40 rounded-xl px-4 text-sm text-on-surface placeholder-outline focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all duration-200" %>
+            <button type="button" onclick="toggleVis('new_password','icon1')" class="absolute right-4 top-1/2 -translate-y-1/2 text-outline hover:text-primary transition-colors">
+              <span class="material-symbols-outlined text-xl" id="icon1">visibility</span>
+            </button>
+          </div>
+        </div>
+
+        <div>
+          <%= f.label :password_confirmation, "Confirmar nova senha",
+            class: "block text-sm font-medium text-on-surface-variant mb-2" %>
+          <div class="relative">
+            <%= f.password_field :password_confirmation,
+              autocomplete: "new-password",
+              placeholder: "••••••••",
+              id: "confirm_password",
+              class: "w-full h-12 bg-surface-container-low border border-outline-variant/40 rounded-xl px-4 text-sm text-on-surface placeholder-outline focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all duration-200" %>
+            <button type="button" onclick="toggleVis('confirm_password','icon2')" class="absolute right-4 top-1/2 -translate-y-1/2 text-outline hover:text-primary transition-colors">
+              <span class="material-symbols-outlined text-xl" id="icon2">visibility</span>
+            </button>
+          </div>
+        </div>
+
+        <%= f.submit "Redefinir senha",
+          class: "w-full h-12 gradient-emerald text-on-primary text-sm font-bold rounded-xl shadow-lg shadow-primary/20 hover:shadow-primary/30 active:scale-[0.98] transition-all duration-200 cursor-pointer" %>
+      <% end %>
+
+      <div class="mt-8 text-center">
+        <p class="text-sm text-on-surface-variant">
+          <%= link_to "Voltar ao login",
+            new_session_path(resource_name),
+            class: "font-bold text-primary hover:underline underline-offset-4" %>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  function toggleVis(inputId, iconId) {
+    const input = document.getElementById(inputId);
+    const icon = document.getElementById(iconId);
+    if (input.type === 'password') {
+      input.type = 'text';
+      icon.textContent = 'visibility_off';
+    } else {
+      input.type = 'password';
+      icon.textContent = 'visibility';
+    }
+  }
+</script>

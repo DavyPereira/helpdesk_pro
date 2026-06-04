@@ -1,0 +1,43 @@
+<div class="p-8">
+  <div class="mb-8">
+    <h1 class="text-2xl font-bold text-on-surface flex items-center gap-2">
+      <span class="material-symbols-outlined text-primary">notifications</span>
+      Notificações
+    </h1>
+    <p class="text-sm text-on-surface-variant mt-1">Atualizações dos seus chamados.</p>
+  </div>
+
+  <div class="bg-surface-container border border-outline-variant/20 rounded-2xl overflow-hidden">
+    <% if @notifications.any? %>
+      <div class="divide-y divide-outline-variant/10">
+        <% @notifications.each do |notification| %>
+          <div class="p-5 hover:bg-surface-container-high/50 transition-colors">
+            <div class="flex items-start justify-between gap-4">
+              <div class="flex items-start gap-3 min-w-0">
+                <div class="w-8 h-8 rounded-xl bg-primary/10 flex items-center justify-center shrink-0 mt-0.5">
+                  <span class="material-symbols-outlined text-primary text-base">notifications_active</span>
+                </div>
+                <div class="min-w-0">
+                  <p class="text-sm font-medium text-on-surface"><%= notification.message %></p>
+                  <p class="text-xs text-on-surface-variant mt-1 flex items-center gap-1">
+                    <span class="material-symbols-outlined text-xs">schedule</span>
+                    <%= l(notification.created_at, format: :short) %>
+                  </p>
+                </div>
+              </div>
+              <%= link_to ticket_path(notification.ticket),
+                class: "text-xs font-semibold text-primary hover:underline underline-offset-2 shrink-0" do %>
+                Ver chamado
+              <% end %>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    <% else %>
+      <div class="text-center py-16">
+        <span class="material-symbols-outlined text-outline text-5xl mb-3 block">notifications_off</span>
+        <p class="text-sm text-on-surface-variant">Nenhuma notificação encontrada.</p>
+      </div>
+    <% end %>
+  </div>
+</div>

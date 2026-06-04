@@ -1,0 +1,15 @@
+<div class="p-8 max-w-3xl mx-auto">
+  <div class="mb-6 flex items-center gap-3">
+    <%= link_to tickets_path, class: "w-9 h-9 flex items-center justify-center rounded-xl bg-surface-container border border-outline-variant/20 hover:border-primary/30 text-on-surface-variant hover:text-primary transition-all" do %>
+      <span class="material-symbols-outlined text-xl">arrow_back</span>
+    <% end %>
+    <div>
+      <h1 class="text-2xl font-bold text-on-surface">Novo Chamado</h1>
+      <p class="text-sm text-on-surface-variant mt-0.5">Preencha as informações do chamado.</p>
+    </div>
+  </div>
+
+  <div class="bg-surface-container border border-outline-variant/20 rounded-2xl p-8">
+    <%= render "form", ticket: @ticket %>
+  </div>
+</div>
