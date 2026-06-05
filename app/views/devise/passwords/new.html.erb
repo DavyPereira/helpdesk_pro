@@ -1,4 +1,4 @@
-<div class="bg-background text-on-background min-h-screen flex items-center justify-center px-4 relative overflow-hidden">
+<div class="bg-[#101415] min-h-screen flex items-center justify-center px-4 relative overflow-hidden">
   <div class="absolute inset-0 dotted-grid opacity-5 pointer-events-none"></div>
   <div class="absolute -top-40 -right-40 w-96 h-96 bg-primary/10 rounded-full blur-[120px]"></div>
   <div class="absolute -bottom-40 -left-40 w-96 h-96 bg-primary/5 rounded-full blur-[120px]"></div>
@@ -11,7 +11,7 @@
       </a>
     </div>
 
-    <div class="bg-surface-container border border-outline-variant/30 rounded-2xl px-8 py-10 shadow-2xl shadow-black/40">
+    <div class="bg-[#1d2022] border border-[#3c4a42]/30 rounded-2xl px-8 py-10 shadow-2xl shadow-black/40">
       <div class="flex justify-center mb-6">
         <div class="w-12 h-12 rounded-2xl bg-primary/10 flex items-center justify-center">
           <span class="material-symbols-outlined text-primary text-3xl">lock_reset</span>
@@ -19,9 +19,9 @@
       </div>
 
       <div class="text-center mb-8">
-        <p class="text-xs font-medium text-outline uppercase tracking-widest mb-1">Recuperação</p>
-        <h2 class="text-2xl font-bold text-on-surface">Esqueceu sua senha?</h2>
-        <p class="text-sm text-on-surface-variant mt-2">Informe seu e-mail e enviaremos as instruções.</p>
+        <p class="text-xs font-medium text-[#86948a] uppercase tracking-widest mb-1">Recuperação</p>
+        <h2 class="text-2xl font-bold text-[#e0e3e5]">Esqueceu sua senha?</h2>
+        <p class="text-sm text-[#bbcabf] mt-2">Informe seu e-mail e enviaremos as instruções.</p>
       </div>
 
       <%= render "devise/shared/error_messages", resource: resource %>
@@ -29,12 +29,12 @@
       <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post, class: "space-y-5" }) do |f| %>
         <div>
           <%= f.label :email, "E-mail",
-            class: "block text-sm font-medium text-on-surface-variant mb-2" %>
+            class: "block text-sm font-medium text-[#bbcabf] mb-2" %>
           <%= f.email_field :email,
             autofocus: true,
             autocomplete: "email",
             placeholder: "nome@empresa.com",
-            class: "w-full h-12 bg-surface-container-low border border-outline-variant/40 rounded-xl px-4 text-sm text-on-surface placeholder-outline focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all duration-200" %>
+            class: "w-full h-12 bg-[#191c1e] border border-[#3c4a42]/40 rounded-xl px-4 text-sm text-[#e0e3e5] placeholder-[#86948a] focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all duration-200" %>
         </div>
 
         <%= f.submit "Enviar instruções",
@@ -42,7 +42,7 @@
       <% end %>
 
       <div class="mt-8 text-center">
-        <p class="text-sm text-on-surface-variant">
+        <p class="text-sm text-[#bbcabf]">
           Lembrou da senha?
           <%= link_to "Entrar",
             new_session_path(resource_name),
@@ -51,7 +51,7 @@
       </div>
     </div>
 
-    <p class="text-center text-xs text-outline mt-6">
+    <p class="text-center text-xs text-[#86948a] mt-6">
       &copy; <%= Time.current.year %> HelpDesk Pro. Enterprise Infrastructure.
     </p>
   </div>

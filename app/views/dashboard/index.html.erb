@@ -98,9 +98,9 @@
             <div class="min-w-0">
               <p class="font-semibold text-on-surface text-sm truncate"><%= ticket.title %></p>
               <p class="text-xs text-on-surface-variant mt-1">
-                <%= ticket.status.humanize %> &middot;
-                <%= ticket.priority.humanize %> &middot;
-                SLA: <%= ticket.sla_status.humanize %>
+                <%= ticket.status_label %> &middot;
+                <%= ticket.priority_label %> &middot;
+                SLA: <%= ticket.sla_status_label %>
               </p>
             </div>
             <%= link_to "Ver",

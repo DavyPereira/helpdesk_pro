@@ -33,14 +33,14 @@
     <div>
       <%= form.label :status, "Status",
         class: "block text-sm font-medium text-on-surface-variant mb-2" %>
-      <%= form.select :status, Ticket.statuses.keys, {},
+      <%= form.select :status, Ticket.status_options, {},
         class: "w-full h-12 bg-surface-container-low border border-outline-variant/40 rounded-xl px-4 text-sm text-on-surface focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all duration-200" %>
     </div>
 
     <div>
       <%= form.label :priority, "Prioridade",
         class: "block text-sm font-medium text-on-surface-variant mb-2" %>
-      <%= form.select :priority, Ticket.priorities.keys, {},
+      <%= form.select :priority, Ticket.priority_options, {},
         class: "w-full h-12 bg-surface-container-low border border-outline-variant/40 rounded-xl px-4 text-sm text-on-surface focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all duration-200" %>
     </div>
   </div>

@@ -22,6 +22,34 @@ class Ticket < ApplicationRecord
     high: 2
   }
 
+  STATUS_LABELS = {
+    "open"        => "Aberto",
+    "in_progress" => "Em andamento",
+    "resolved"    => "Resolvido"
+  }.freeze
+
+  PRIORITY_LABELS = {
+    "low"    => "Baixa",
+    "medium" => "Média",
+    "high"   => "Alta"
+  }.freeze
+
+  SLA_LABELS = {
+    "resolved"  => "Resolvido",
+    "sem prazo" => "Sem prazo",
+    "atrasado"  => "Atrasado",
+    "vencendo"  => "Vencendo",
+    "no prazo"  => "No prazo"
+  }.freeze
+
+  def self.status_options
+    STATUS_LABELS.map { |k, v| [v, k] }
+  end
+
+  def self.priority_options
+    PRIORITY_LABELS.map { |k, v| [v, k] }
+  end
+
   validates :title, presence: true, length: { minimum: 3 }
   validates :description, presence: true, length: { minimum: 10 }
 
@@ -47,6 +75,18 @@ class Ticket < ApplicationRecord
     else
       72
     end
+  end
+
+  def status_label
+    STATUS_LABELS[status]
+  end
+
+  def priority_label
+    PRIORITY_LABELS[priority]
+  end
+
+  def sla_status_label
+    SLA_LABELS[sla_status]
   end
 
   private

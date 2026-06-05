@@ -1,4 +1,4 @@
-<div class="bg-background text-on-background min-h-screen flex selection:bg-primary/30">
+<div class="min-h-screen flex selection:bg-primary/30">
   <main class="flex w-full min-h-screen overflow-hidden">
 
     <!-- Left Side: Branding -->
@@ -15,10 +15,10 @@
       </div>
 
       <div class="relative z-10 flex-grow flex flex-col justify-center max-w-xl">
-        <h2 class="text-5xl font-bold text-on-surface mb-4 leading-tight tracking-tight">
+        <h2 class="text-5xl font-bold text-white mb-4 leading-tight tracking-tight">
           Comece agora gratuitamente
         </h2>
-        <p class="text-lg text-on-surface-variant mb-12 leading-relaxed">
+        <p class="text-lg text-[#bbcabf] mb-12 leading-relaxed">
           Crie sua conta e tenha acesso completo ao sistema de gestão de chamados mais eficiente para equipes modernas.
         </p>
 
@@ -27,28 +27,28 @@
             <div class="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center shrink-0">
               <span class="material-symbols-outlined text-primary text-xl">check_circle</span>
             </div>
-            <p class="text-on-surface-variant text-sm">Configuração em menos de 2 minutos</p>
+            <p class="text-[#bbcabf] text-sm">Configuração em menos de 2 minutos</p>
           </div>
           <div class="flex items-center gap-4">
             <div class="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center shrink-0">
               <span class="material-symbols-outlined text-primary text-xl">check_circle</span>
             </div>
-            <p class="text-on-surface-variant text-sm">Controle total de SLAs e prioridades</p>
+            <p class="text-[#bbcabf] text-sm">Controle total de SLAs e prioridades</p>
           </div>
           <div class="flex items-center gap-4">
             <div class="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center shrink-0">
               <span class="material-symbols-outlined text-primary text-xl">check_circle</span>
             </div>
-            <p class="text-on-surface-variant text-sm">Dashboard com métricas em tempo real</p>
+            <p class="text-[#bbcabf] text-sm">Dashboard com métricas em tempo real</p>
           </div>
         </div>
       </div>
     </section>
 
     <!-- Right Side: Registration Form -->
-    <section class="w-full lg:w-1/2 flex flex-col items-center justify-center bg-on-surface px-4 lg:px-16 relative">
+    <section class="w-full lg:w-1/2 flex flex-col items-center justify-center bg-[#e8eaec] px-4 lg:px-16 relative">
       <div class="lg:hidden absolute top-10 left-4">
-        <h1 class="text-2xl font-bold text-inverse-primary flex items-center gap-2">
+        <h1 class="text-2xl font-bold text-[#006c49] flex items-center gap-2">
           <span class="material-symbols-outlined">bolt</span>
           HelpDesk Pro
         </h1>
@@ -62,7 +62,7 @@
         </div>
 
         <div class="text-center mb-8">
-          <p class="text-xs font-medium text-outline uppercase tracking-widest mb-1">Cadastro</p>
+          <p class="text-xs font-medium text-gray-500 uppercase tracking-widest mb-1">Cadastro</p>
           <h2 class="text-2xl font-bold text-[#1A1A1A]">Criar sua conta</h2>
         </div>
 
@@ -71,7 +71,7 @@
         <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { class: "space-y-5" }) do |f| %>
           <div>
             <%= f.label :email, "E-mail",
-              class: "block text-sm font-medium text-surface-variant mb-2" %>
+              class: "block text-sm font-medium text-gray-600 mb-2" %>
             <%= f.email_field :email,
               autofocus: true,
               autocomplete: "email",
@@ -81,25 +81,25 @@
 
           <div>
             <%= f.label :password, "Senha",
-              class: "block text-sm font-medium text-surface-variant mb-2" %>
+              class: "block text-sm font-medium text-gray-600 mb-2" %>
             <div class="relative">
               <%= f.password_field :password,
                 autocomplete: "new-password",
                 placeholder: "••••••••",
                 id: "reg_password",
                 class: "w-full h-12 bg-white border border-outline-variant/30 rounded-xl px-4 text-sm text-[#1A1A1A] focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all duration-200" %>
-              <button type="button" onclick="toggleVis('reg_password','reg_icon')" class="absolute right-4 top-1/2 -translate-y-1/2 text-outline hover:text-primary transition-colors">
+              <button type="button" onclick="toggleVis('reg_password','reg_icon')" class="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 hover:text-primary transition-colors">
                 <span class="material-symbols-outlined text-xl" id="reg_icon">visibility</span>
               </button>
             </div>
             <% if @minimum_password_length %>
-              <p class="text-xs text-outline mt-1">Mínimo de <%= @minimum_password_length %> caracteres.</p>
+              <p class="text-xs text-gray-500 mt-1">Mínimo de <%= @minimum_password_length %> caracteres.</p>
             <% end %>
           </div>
 
           <div>
             <%= f.label :password_confirmation, "Confirmar senha",
-              class: "block text-sm font-medium text-surface-variant mb-2" %>
+              class: "block text-sm font-medium text-gray-600 mb-2" %>
             <%= f.password_field :password_confirmation,
               autocomplete: "new-password",
               placeholder: "••••••••",
@@ -111,7 +111,7 @@
         <% end %>
 
         <div class="mt-8 text-center">
-          <p class="text-sm text-surface-variant">
+          <p class="text-sm text-gray-600">
             Já tem uma conta?
             <%= link_to "Entrar",
               new_session_path(resource_name),
@@ -121,7 +121,7 @@
       </div>
 
       <div class="absolute bottom-6 text-center">
-        <p class="text-xs text-outline">
+        <p class="text-xs text-gray-500">
           &copy; <%= Time.current.year %> HelpDesk Pro. Enterprise Infrastructure.
         </p>
       </div>

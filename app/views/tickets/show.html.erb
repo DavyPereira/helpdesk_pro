@@ -12,14 +12,14 @@
             when 'in_progress' then 'chip-yellow'
             when 'resolved'    then 'chip-blue'
             end %>">
-          <%= @ticket.status.humanize %>
+          <%= @ticket.status_label %>
         </span>
         <span class="chip <%= case @ticket.priority
             when 'low'    then 'chip-gray'
             when 'medium' then 'chip-yellow'
             when 'high'   then 'chip-red'
             end %>">
-          <%= @ticket.priority.humanize %>
+          <%= @ticket.priority_label %>
         </span>
         <span class="chip <%= case @ticket.sla_status
             when 'atrasado'  then 'chip-red'
@@ -28,7 +28,7 @@
             when 'resolvido' then 'chip-blue'
             else 'chip-gray'
             end %>">
-          SLA: <%= @ticket.sla_status.humanize %>
+          SLA: <%= @ticket.sla_status_label %>
         </span>
       </div>
     </div>

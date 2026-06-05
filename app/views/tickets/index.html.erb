@@ -33,14 +33,14 @@
       <div>
         <label class="block text-xs font-medium text-on-surface-variant mb-1.5">Status</label>
         <%= select_tag :status,
-          options_for_select([["Todos", ""]] + Ticket.statuses.keys.map { |s| [s, s] }, params[:status]),
+          options_for_select([["Todos", ""]] + Ticket.status_options, params[:status]),
           class: "h-10 bg-surface-container-low border border-outline-variant/40 rounded-xl px-3 text-sm text-on-surface focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all" %>
       </div>
 
       <div>
         <label class="block text-xs font-medium text-on-surface-variant mb-1.5">Prioridade</label>
         <%= select_tag :priority,
-          options_for_select([["Todas", ""]] + Ticket.priorities.keys.map { |p| [p, p] }, params[:priority]),
+          options_for_select([["Todas", ""]] + Ticket.priority_options, params[:priority]),
           class: "h-10 bg-surface-container-low border border-outline-variant/40 rounded-xl px-3 text-sm text-on-surface focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all" %>
       </div>
 
@@ -81,7 +81,7 @@
                     when 'in_progress' then 'chip-yellow'
                     when 'resolved'    then 'chip-blue'
                     end %>">
-                  <%= ticket.status.humanize %>
+                  <%= ticket.status_label %>
                 </span>
               </td>
 
@@ -91,7 +91,7 @@
                     when 'medium' then 'chip-yellow'
                     when 'high'   then 'chip-red'
                     end %>">
-                  <%= ticket.priority.humanize %>
+                  <%= ticket.priority_label %>
                 </span>
               </td>
 
@@ -103,7 +103,7 @@
                     when 'resolvido' then 'chip-blue'
                     else 'chip-gray'
                     end %>">
-                  <%= ticket.sla_status.humanize %>
+                  <%= ticket.sla_status_label %>
                 </span>
                 <p class="text-xs text-on-surface-variant mt-1">SLA: <%= ticket.sla_hours %>h</p>
                 <p class="text-xs text-on-surface-variant">Criado: <%= l(ticket.created_at, format: :short) %></p>
