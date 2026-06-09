@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   resources :notifications, only: [:index]
 
   resources :tickets do
-    resources :comments, only: [:create]
+    resources :comments, only: [:create, :destroy]
   end
 
   root "home#index"

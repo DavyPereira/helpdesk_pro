@@ -16,6 +16,14 @@ class User < ApplicationRecord
   }
   before_create :generate_api_token
 
+  def display_name
+    email.split("@").first
+         .gsub(/[0-9]/, "")
+         .split(/[._\-]/)
+         .map(&:capitalize)
+         .join(" ")
+  end
+
   private
 
   def generate_api_token

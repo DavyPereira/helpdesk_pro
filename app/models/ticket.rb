@@ -7,6 +7,7 @@ class Ticket < ApplicationRecord
 
   has_many :comments, dependent: :destroy
   has_many :activities, dependent: :destroy
+  has_many :notifications, dependent: :destroy
   has_many_attached :attachments
   
 

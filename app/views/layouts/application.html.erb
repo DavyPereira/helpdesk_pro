@@ -113,7 +113,9 @@
         </aside>
 
         <!-- Main content -->
-        <main class="flex-1 flex flex-col overflow-hidden">
+        <main class="flex-1 flex flex-col overflow-hidden relative surface-pattern">
+          <div class="absolute top-0 right-0 w-[600px] h-[400px] bg-primary/5 rounded-full blur-[120px] pointer-events-none"></div>
+          <div class="absolute bottom-0 left-1/4 w-[400px] h-[300px] bg-primary/4 rounded-full blur-[100px] pointer-events-none"></div>
           <!-- Top bar -->
           <div class="bg-surface-container-low border-b border-outline-variant/20 px-8 py-4 flex justify-between items-center">
             <h2 class="text-sm font-semibold text-on-surface-variant">Sistema de Gestão de Chamados</h2>
@@ -138,7 +140,7 @@
             </div>
           <% end %>
 
-          <div class="flex-1 overflow-auto">
+          <div class="flex-1 overflow-auto relative z-10">
             <%= yield %>
           </div>
         </main>

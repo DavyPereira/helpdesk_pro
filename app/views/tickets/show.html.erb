@@ -89,10 +89,20 @@
             <% @ticket.comments.order(created_at: :desc).each do |comment| %>
               <div class="p-4 bg-surface-container-low border border-outline-variant/20 rounded-xl">
                 <p class="text-sm text-on-surface leading-relaxed"><%= comment.content %></p>
-                <p class="text-xs text-on-surface-variant mt-2 flex items-center gap-1">
-                  <span class="material-symbols-outlined text-xs">person</span>
-                  <%= comment.user.email %>
-                </p>
+                <div class="flex items-center justify-between mt-2">
+                  <p class="text-xs text-on-surface-variant flex items-center gap-1">
+                    <span class="material-symbols-outlined text-xs">person</span>
+                    <%= comment.user.email %>
+                  </p>
+                  <% if current_user == comment.user || current_user.admin? %>
+                    <%= button_to ticket_comment_path(@ticket, comment),
+                      method: :delete,
+                      data: { turbo_confirm: "Excluir este comentário?" },
+                      class: "text-xs text-red-400 hover:text-red-300 transition-colors cursor-pointer flex items-center gap-0.5" do %>
+                      <span class="material-symbols-outlined text-sm">delete</span>
+                    <% end %>
+                  <% end %>
+                </div>
               </div>
             <% end %>
           </div>
@@ -125,9 +135,10 @@
             <% @ticket.activities.order(created_at: :desc).each do |activity| %>
               <div class="border-l-2 border-primary/30 pl-3 py-1">
                 <p class="text-xs text-on-surface leading-relaxed">
-                  <span class="font-semibold text-primary"><%= activity.user.email %></span>
+                  <span class="font-semibold text-primary"><%= activity.user.display_name %></span>
                   <%= activity.action %>
                 </p>
+                <p class="text-xs text-on-surface-variant/70 mt-0.5"><%= activity.user.email %></p>
                 <p class="text-xs text-on-surface-variant mt-0.5">
                   <%= l(activity.created_at, format: :short) %>
                 </p>

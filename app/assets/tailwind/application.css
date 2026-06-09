@@ -111,3 +111,26 @@ body.light-mode {
 body.light-mode .dotted-grid {
   background-image: radial-gradient(circle, #c0cac5 1px, transparent 1px);
 }
+
+/* Pattern for login form side (always light) */
+.login-pattern {
+  background-image:
+    linear-gradient(to right, rgba(0,0,0,0.045) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0,0,0,0.045) 1px, transparent 1px),
+    radial-gradient(circle 560px at 88% 12%, rgba(78,222,163,0.12), transparent);
+  background-size: 28px 28px, 28px 28px, 100% 100%;
+}
+
+/* Grid para o fundo escuro do main (modo escuro) */
+.surface-pattern {
+  background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.03) 1px, transparent 0);
+  background-size: 28px 28px;
+}
+
+/* Grid + glow emerald para o main no modo claro */
+body.light-mode .surface-pattern {
+  background-image:
+    linear-gradient(to right, rgba(0,0,0,0.035) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0,0,0,0.035) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
