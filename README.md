@@ -5,128 +5,21 @@
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/Ruby-Rails-red?style=for-the-badge&logo=rubyonrails">
-  <img src="https://img.shields.io/badge/PostgreSQL-Database-blue?style=for-the-badge&logo=postgresql">
-  <img src="https://img.shields.io/badge/TailwindCSS-Interface-38B2AC?style=for-the-badge&logo=tailwindcss">
-  <img src="https://img.shields.io/badge/API-REST-10B981?style=for-the-badge">
+  <img src="https://img.shields.io/badge/Ruby_on_Rails-CC0000?style=for-the-badge&logo=rubyonrails&logoColor=white">
+  <img src="https://img.shields.io/badge/PostgreSQL-316192?style=for-the-badge&logo=postgresql&logoColor=white">
+  <img src="https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwindcss&logoColor=white">
+  <img src="https://img.shields.io/badge/API_REST-10B981?style=for-the-badge">
 </p>
 
 ---
 
 ## 📌 Sobre o projeto
 
-O **HelpDesk Pro** é uma aplicação web para gerenciamento de chamados de suporte, criada com foco em aprendizado, boas práticas e construção de portfólio.
+O **HelpDesk Pro** é uma aplicação web para gerenciamento de chamados de suporte, desenvolvida com foco em boas práticas, organização de atendimento e apresentação profissional para portfólio.
 
-O sistema permite que usuários criem chamados, adicionem comentários, anexem arquivos, acompanhem status, recebam notificações e consultem prazos de atendimento por SLA.
+O sistema permite que usuários criem chamados, acompanhem status, adicionem comentários, recebam notificações e consultem prazos de atendimento por SLA.
 
-Administradores possuem uma visão mais ampla da operação, podendo visualizar todos os chamados, atribuir responsáveis, acompanhar métricas no dashboard e gerenciar o fluxo de atendimento.
-
----
-
-## ✨ Funcionalidades
-
-### 👤 Usuários e permissões
-
-- Cadastro e login de usuários
-- Autenticação com Devise
-- Perfis de acesso:
-  - Usuário comum
-  - Administrador
-- Controle de acesso aos chamados
-- Administrador visualiza todos os chamados
-- Usuário comum visualiza apenas seus próprios chamados
-
-### 🎫 Chamados
-
-- Criação de chamados
-- Edição de chamados
-- Exclusão de chamados
-- Listagem de chamados
-- Detalhamento individual
-- Pesquisa por título
-- Filtros por status e prioridade
-
-### 🚦 Status e prioridades
-
-- Status:
-  - Aberto
-  - Em andamento
-  - Resolvido
-- Prioridades:
-  - Baixa
-  - Média
-  - Alta
-
-### ⏱️ SLA
-
-- SLA automático conforme prioridade
-- Chamados de alta prioridade com prazo menor
-- Exibição do prazo final
-- Indicadores visuais:
-  - No prazo
-  - Vencendo
-  - Atrasado
-  - Resolvido
-
-### 👨‍💻 Responsável pelo chamado
-
-- Atribuição de técnico/responsável
-- Administrador pode definir responsável
-- Listagem mostra quem está atendendo cada chamado
-
-### 💬 Comentários
-
-- Comentários dentro de cada chamado
-- Histórico de conversa
-- Identificação do usuário que comentou
-- Registro automático da atividade
-
-### 📎 Anexos
-
-- Upload de arquivos nos chamados
-- Suporte via Active Storage
-- Download de anexos
-- Organização por chamado
-
-### 🔔 Notificações
-
-- Notificações internas
-- Contador de notificações não lidas
-- Notificação ao receber interação em chamado
-- Página dedicada para visualizar notificações
-
-### 🧾 Histórico de atividades
-
-- Registro de ações importantes
-- Criação de chamados
-- Atualização de chamados
-- Mudança de status
-- Alteração de prioridade
-- Atribuição de responsável
-- Comentários adicionados
-
-### 📊 Dashboard
-
-- Total de chamados
-- Chamados abertos
-- Chamados em andamento
-- Chamados resolvidos
-- Chamados de alta prioridade
-- Chamados atrasados
-- Chamados vencendo
-- Gráficos por status
-- Gráficos por prioridade
-- Gráficos por dia
-- Gráfico de situação do SLA
-
-### 🔌 API REST
-
-- API protegida por token
-- Listagem de chamados
-- Detalhes de chamado
-- Criação via API
-- Atualização via API
-- Exclusão via API
+Administradores possuem uma visão completa da operação, podendo visualizar todos os chamados, atribuir responsáveis, acompanhar métricas no dashboard e gerenciar o fluxo de atendimento.
 
 ---
 
@@ -142,57 +35,182 @@ Administradores possuem uma visão mais ampla da operação, podendo visualizar 
 
 ### 🎫 Lista de chamados
 
-![Chamados](docs/screenshots/tickets.png)
+![Chamados](docs/screenshots/chamados.png)
 
 ### 📄 Detalhes do chamado
 
-![Detalhes do chamado](docs/screenshots/ticket-details.png)
+![Detalhes do chamado](docs/screenshots/chamados-detalhes.png)
+
+### ➕ Novo chamado
+
+![Novo chamado](docs/screenshots/new-chamado.png)
 
 ### 🔔 Notificações
 
-![Notificações](docs/screenshots/notifications.png)
+![Notificações](docs/screenshots/notificacoes.png)
+
+---
+
+## ✨ Funcionalidades
+
+* Cadastro e autenticação de usuários
+* Login com Devise
+* Perfis de acesso: usuário comum e administrador
+* Criação, edição, listagem e exclusão de chamados
+* Controle de status: aberto, em andamento e resolvido
+* Controle de prioridade: baixa, média e alta
+* SLA automático conforme prioridade do chamado
+* Atribuição de responsável pelo atendimento
+* Comentários em chamados
+* Upload de anexos com Active Storage
+* Histórico de atividades
+* Notificações internas
+* Dashboard com métricas e gráficos
+* Pesquisa e filtros por status e prioridade
+* API REST autenticada por token
+* Interface personalizada com identidade visual grafite e verde esmeralda
+
+---
+
+## 📊 Dashboard
+
+O painel principal apresenta indicadores importantes para acompanhamento dos chamados, como:
+
+* Total de chamados
+* Chamados abertos
+* Chamados em andamento
+* Chamados resolvidos
+* Chamados de alta prioridade
+* Chamados atrasados
+* Chamados próximos do vencimento
+* Gráficos por status, prioridade, data e situação do SLA
+
+---
+
+## 🔌 API REST
+
+A aplicação possui uma API REST para integração externa, protegida por autenticação via token.
+
+### Endpoints disponíveis
+
+| Método | Endpoint              | Descrição           |
+| ------ | --------------------- | ------------------- |
+| GET    | `/api/v1/tickets`     | Lista chamados      |
+| GET    | `/api/v1/tickets/:id` | Exibe um chamado    |
+| POST   | `/api/v1/tickets`     | Cria um chamado     |
+| PATCH  | `/api/v1/tickets/:id` | Atualiza um chamado |
+| DELETE | `/api/v1/tickets/:id` | Remove um chamado   |
+
+### Exemplo de requisição
+
+```bash
+curl -H "Authorization: Token SEU_TOKEN" \
+http://localhost:3000/api/v1/tickets
+```
 
 ---
 
 ## 🛠️ Tecnologias utilizadas
 
-| Tecnologia | Uso |
-|---|---|
-| Ruby | Linguagem principal |
-| Ruby on Rails | Framework web |
-| PostgreSQL | Banco de dados |
-| Devise | Autenticação |
-| Tailwind CSS | Interface |
-| Active Storage | Upload de arquivos |
-| Hotwire/Turbo | Interatividade Rails |
-| Chartkick | Gráficos |
-| Chart.js | Biblioteca de gráficos |
-| Groupdate | Agrupamento por datas |
-| REST API | Integração externa |
-| Git/GitHub | Versionamento |
+| Tecnologia     | Uso                       |
+| -------------- | ------------------------- |
+| Ruby           | Linguagem principal       |
+| Ruby on Rails  | Framework web             |
+| PostgreSQL     | Banco de dados            |
+| Devise         | Autenticação              |
+| Tailwind CSS   | Estilização da interface  |
+| Active Storage | Upload de arquivos        |
+| Hotwire/Turbo  | Interatividade Rails      |
+| Chartkick      | Gráficos                  |
+| Chart.js       | Renderização dos gráficos |
+| Groupdate      | Agrupamento por datas     |
+| Git/GitHub     | Versionamento             |
 
 ---
 
-## 🧱 Estrutura principal
+## 🚀 Como rodar o projeto localmente
+
+Clone o repositório:
+
+```bash
+git clone https://github.com/DavyPereira/helpdesk_pro.git
+```
+
+Entre na pasta do projeto:
+
+```bash
+cd helpdesk_pro
+```
+
+Instale as dependências:
+
+```bash
+bundle install
+```
+
+Crie e migre o banco de dados:
+
+```bash
+rails db:create
+rails db:migrate
+```
+
+Inicie o servidor:
+
+```bash
+bin/dev
+```
+
+Acesse no navegador:
 
 ```text
-app/
-├── controllers/
-│   ├── tickets_controller.rb
-│   ├── comments_controller.rb
-│   ├── dashboard_controller.rb
-│   ├── notifications_controller.rb
-│   └── api/v1/tickets_controller.rb
-│
-├── models/
-│   ├── user.rb
-│   ├── ticket.rb
-│   ├── comment.rb
-│   ├── notification.rb
-│   └── activity.rb
-│
-└── views/
-    ├── tickets/
-    ├── dashboard/
-    ├── notifications/
-    └── devise/
+http://localhost:3000
+```
+
+---
+
+## 🎨 Identidade visual
+
+O projeto utiliza uma identidade visual baseada em:
+
+* Grafite
+* Verde esmeralda
+* Layout SaaS corporativo
+* Cards arredondados
+* Fundos com padrões sutis
+* Interface limpa e profissional
+
+---
+
+## 📌 Status do projeto
+
+✅ Projeto funcional
+✅ Interface personalizada
+✅ Dashboard implementado
+✅ Sistema de chamados completo
+✅ Notificações internas
+✅ API REST com autenticação por token
+✅ Prints adicionados ao README
+
+---
+
+## 🧭 Próximas melhorias
+
+* Deploy em produção
+* Testes automatizados
+* Envio de e-mails automáticos
+* Exportação de relatórios
+* Melhorias no painel administrativo
+* Melhorias de responsividade
+
+---
+
+## 👨‍💻 Autor
+
+Desenvolvido por **Davy Pereira**.
+
+<p>
+  <a href="https://github.com/DavyPereira">
+    <img src="https://img.shields.io/badge/GitHub-DavyPereira-181717?style=for-the-badge&logo=github">
+  </a>
+</p>
