@@ -14,7 +14,7 @@ Rails.application.routes.draw do
     resources :comments, only: [:create, :destroy]
   end
 
-  root "home#index"
+  root "devise/sessions#new"
 
   devise_for :users
 
