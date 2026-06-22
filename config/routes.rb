@@ -14,7 +14,7 @@ Rails.application.routes.draw do
     resources :comments, only: [:create, :destroy]
   end
 
-  root "devise/sessions#new"
+  root to: redirect("/users/sign_in")
 
   devise_for :users
 
