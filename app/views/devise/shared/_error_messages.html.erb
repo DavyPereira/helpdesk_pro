@@ -1,11 +1,11 @@
 <% if resource.errors.any? %>
-  <div id="error_explanation" data-turbo-temporary class="mb-4 rounded-xl border border-error/30 bg-error-container/20 px-4 py-3">
+  <div id="error_explanation" data-turbo-temporary class="mb-4 rounded-xl border border-error/70 bg-error-container/60 px-4 py-3">
     <p class="text-sm font-semibold text-error mb-1">
       <%= pluralize(resource.errors.count, "erro") %> encontrado(s):
     </p>
     <ul class="list-disc ml-4 space-y-1">
       <% resource.errors.full_messages.each do |message| %>
-        <li class="text-sm text-error/80"><%= message %></li>
+        <li class="text-sm text-error"><%= message %></li>
       <% end %>
     </ul>
   </div>
